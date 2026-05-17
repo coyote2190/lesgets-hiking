@@ -1,0 +1,122 @@
+/* ── HERO ────────────────────────────────────────────────────── */
+
+.hero {
+  min-height: calc(100dvh - var(--nav-height));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-12);
+  padding-block: var(--space-16);
+  padding-inline: var(--section-padding-x);
+  max-width: var(--container-xl);
+  margin-inline: auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: var(--space-12);
+    text-align: center;
+
+    .hero__visuel {
+      display: none;
+    }
+  }
+
+  .hero__label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    margin-block-end: var(--space-4);
+  }
+
+  .hero__titre {
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    line-height: 1.1;
+    margin-block-end: var(--space-6);
+    color: var(--color-text);
+  }
+
+  .hero__description {
+    font-size: var(--text-md);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-body);
+    margin-block-end: var(--space-8);
+    max-width: 48ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .hero__visuel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-xl);
+
+    /* Image de fond — placer la photo dans assets/images/hero.jpg */
+    background-image: url("../../assets/images/lesgets.jpg");
+    background-size: cover;
+    background-position: center;
+
+    /* Couleur de secours si l'image ne charge pas */
+    background-color: var(--vert-700);
+
+    position: relative;
+    overflow: hidden;
+
+    /* Overlay en dégradé — assombrit le bas pour garder le badge lisible
+       et donne de la profondeur à la photo */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        oklch(0 0 0 / 0.05) 0%,
+        oklch(0 0 0 / 0.45) 100%
+      );
+    }
+  }
+
+  .hero__badge {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: oklch(1 0 0 / 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid oklch(1 0 0 / 0.25);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-10);
+    color: oklch(1 0 0);
+
+    /* .hero__badge-nombre est enfant de .hero__badge dans le DOM
+       → sélecteur complet descendant, pas &-nombre */
+    .hero__badge-nombre {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-bold);
+      line-height: 1;
+    }
+
+    .hero__badge-label {
+      font-size: var(--text-sm);
+      text-align: center;
+      opacity: 0.85;
+      margin-block-start: var(--space-1);
+      line-height: 1.4;
+    }
+  }
+}

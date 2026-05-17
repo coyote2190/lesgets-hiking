@@ -1,27 +1,25 @@
-/*
- * main.css
- * --------
- * Point d'entrée unique de la feuille de style.
- *
- * RÈGLE D'OR : la déclaration @layer doit apparaître AVANT tous les @import.
- * Elle fixe l'ordre de priorité de la cascade
- * indépendamment de l'ordre de chargement des fichiers.
- *
- * Ordre de spécificité (du moins au plus prioritaire) :
- *   reset → base → layout → composants → utilitaires
- */
+/* =============================================================
+   MAIN.CSS — gets-trails
+   Point d'entrée unique. C'est le seul fichier lié dans le HTML.
 
-/* 1. Déclaration globale de l'ordre des couches (cascade layers) */
+   Ordre :
+   1. Déclaration des layers (ordre = priorité)
+   2. Tokens (hors layer — valeurs globales)
+   3. Chaque layer dans son fichier dédié
+   ============================================================= */
+
+/* ── 1. DÉCLARATION DES LAYERS ───────────────────────────────── */
+/* L'ordre ici est définitif : utilitaires gagne sur tout        */
 @layer reset, base, layout, composants, utilitaires;
 
-/* 2. Design tokens — variables CSS globales (hors layer, toujours disponibles) */
+/* ── 2. TOKENS ───────────────────────────────────────────────── */
+/* Hors layer — toujours disponibles, jamais écrasés par erreur  */
 @import url("tokens/design-tokens.css");
 
-/* 3. Couches importées dans l'ordre déclaré ci-dessus */
+/* ── 3. LAYERS ───────────────────────────────────────────────── */
 @import url("layers/reset.css") layer(reset);
 @import url("layers/base.css") layer(base);
 @import url("layers/layout.css") layer(layout);
-@import url("composants/nav.css") layer(composants);
 @import url("composants/hero.css") layer(composants);
-@import url("composants/carte-rando.css") layer(composants);
+@import url("composants/nav.css") layer(composants);
 @import url("layers/utilitaires.css") layer(utilitaires);

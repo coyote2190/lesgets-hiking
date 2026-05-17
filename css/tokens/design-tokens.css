@@ -1,0 +1,173 @@
+/* =============================================================
+   DESIGN TOKENS — gets-trails
+   ============================================================= */
+
+:root {
+  /* ── 1. PRIMITIVES ──────────────────────────────────────────
+     Les valeurs brutes. On ne les utilise PAS directement dans
+     les composants — uniquement pour alimenter les sémantiques.
+  ─────────────────────────────────────────────────────────── */
+
+  /* Palette couleurs (oklch — module couleurs vu plus tard) */
+  --vert-100: oklch(0.97 0.03 155);
+  --vert-200: oklch(0.9 0.07 155);
+  --vert-500: oklch(0.55 0.18 155);
+  --vert-700: oklch(0.38 0.14 155);
+  --vert-900: oklch(0.22 0.09 155);
+
+  --ardoise-50: oklch(0.98 0.005 240);
+  --ardoise-100: oklch(0.95 0.01 240);
+  --ardoise-200: oklch(0.88 0.015 240);
+  --ardoise-500: oklch(0.55 0.03 240);
+  --ardoise-700: oklch(0.35 0.03 240);
+  --ardoise-900: oklch(0.18 0.025 240);
+
+  --creme: oklch(0.98 0.02 85);
+  --or-500: oklch(0.75 0.14 75);
+  --rouge-500: oklch(0.55 0.22 25);
+
+  /* Échelle typographique (ratio 1.25 — Major Third) */
+  --text-xs: 0.64rem; /* ~10px */
+  --text-sm: 0.8rem; /* ~13px */
+  --text-base: 1rem; /* 16px  */
+  --text-md: 1.25rem; /* ~20px */
+  --text-lg: 1.563rem; /* ~25px */
+  --text-xl: 1.953rem; /* ~31px */
+  --text-2xl: 2.441rem; /* ~39px */
+  --text-3xl: 3.052rem; /* ~49px */
+
+  /* Échelle d'espacement (base 4px) */
+  --space-1: 0.25rem; /* 4px  */
+  --space-2: 0.5rem; /* 8px  */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Ombres */
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.08);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.1);
+  --shadow-lg: 0 8px 32px oklch(0 0 0 / 0.14);
+  --shadow-xl: 0 16px 48px oklch(0 0 0 / 0.18);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Typographie — familles */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1440px;
+
+  /* ── 2. SÉMANTIQUES ─────────────────────────────────────────
+     Ce que les valeurs SIGNIFIENT dans l'interface.
+     C'est ici qu'on touche pour changer un thème.
+  ─────────────────────────────────────────────────────────── */
+
+  /* Couleurs sémantiques */
+  --color-bg: var(--creme);
+  --color-bg-alt: var(--ardoise-50);
+  --color-surface: oklch(1 0 0);
+  --color-surface-alt: var(--ardoise-100);
+
+  --color-text: var(--ardoise-900);
+  --color-text-muted: var(--ardoise-500);
+  --color-text-inverse: var(--creme);
+
+  --color-primary: var(--vert-500);
+  --color-primary-dark: var(--vert-700);
+  --color-primary-light: var(--vert-200);
+
+  --color-accent: var(--or-500);
+  --color-danger: var(--rouge-500);
+
+  --color-border: var(--ardoise-200);
+  --color-border-light: var(--ardoise-100);
+
+  /* Typographie sémantique */
+  --font-size-body: var(--text-base);
+  --font-size-small: var(--text-sm);
+  --font-size-label: var(--text-xs);
+  --line-height-body: 1.7;
+  --line-height-tight: 1.2;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Espacement sémantique */
+  --spacing-xs: var(--space-2);
+  --spacing-sm: var(--space-4);
+  --spacing-md: var(--space-6);
+  --spacing-lg: var(--space-10);
+  --spacing-xl: var(--space-16);
+  --spacing-2xl: var(--space-24);
+
+  /* Section padding */
+  --section-padding-x: var(--space-6);
+  --section-padding-y: var(--space-16);
+
+  /* ── 3. COMPOSANTS ──────────────────────────────────────────
+     Valeurs spécifiques aux composants. Alimentées par les
+     sémantiques — on peut les surcharger localement.
+  ─────────────────────────────────────────────────────────── */
+
+  /* Bouton */
+  --btn-padding-x: var(--space-6);
+  --btn-padding-y: var(--space-3);
+  --btn-radius: var(--radius-full);
+  --btn-font-size: var(--text-sm);
+  --btn-font-weight: var(--font-weight-medium);
+  --btn-transition: var(--transition-base);
+
+  /* Navigation */
+  --nav-height: 4rem;
+  --nav-bg: oklch(1 0 0 / 0.92);
+  --nav-border: var(--color-border-light);
+
+  /* Carte rando */
+  --card-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-md);
+  --card-padding: var(--space-6);
+  --card-border: var(--color-border-light);
+}
+
+/* ── THÈME SOMBRE (préférence système) ──────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--ardoise-900);
+    --color-bg-alt: var(--ardoise-700);
+    --color-surface: oklch(0.22 0.025 240);
+    --color-surface-alt: oklch(0.28 0.025 240);
+
+    --color-text: var(--ardoise-50);
+    --color-text-muted: var(--ardoise-200);
+
+    --color-border: oklch(1 0 0 / 0.1);
+    --color-border-light: oklch(1 0 0 / 0.06);
+
+    --nav-bg: oklch(0.18 0.025 240 / 0.92);
+    --card-shadow: 0 4px 12px oklch(0 0 0 / 0.4);
+  }
+}

@@ -1,0 +1,108 @@
+/* =============================================================
+   RESET — gets-trails
+   ============================================================= */
+
+/* Tout en border-box — le standard aujourd'hui */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Supprime les marges par défaut */
+* {
+  margin: 0;
+}
+
+/* Améliore le rendu des images */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Hérite de la police pour les champs de formulaire */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Évite le débordement de texte */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Supprime le style de liste uniquement si role=list
+   (bonne pratique accessibilité — VoiceOver) */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Root + body */
+html {
+  /* Scroll fluide natif */
+  scroll-behavior: smooth;
+
+  /* Respecte les préférences de réduction de mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  /* Antialiasing pour un rendu plus propre */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* Hauteur min pour que le footer soit toujours en bas */
+  min-height: 100dvh;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+/* Améliore l'accessibilité des éléments interactifs */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Liens sans décoration par défaut */
+a {
+  color: inherit;
+  text-decoration: none;
+
+  /* Soulignement propre quand text-decoration est remis */
+  &[href]:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+}
+
+/* Boutons sans style navigateur */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+
+  /* Désactive les styles navigateur sur iOS */
+  -webkit-appearance: none;
+  appearance: none;
+}
