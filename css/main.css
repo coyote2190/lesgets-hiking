@@ -1,0 +1,27 @@
+/*
+ * main.css
+ * --------
+ * Point d'entrée unique de la feuille de style.
+ *
+ * RÈGLE D'OR : la déclaration @layer doit apparaître AVANT tous les @import.
+ * Elle fixe l'ordre de priorité de la cascade
+ * indépendamment de l'ordre de chargement des fichiers.
+ *
+ * Ordre de spécificité (du moins au plus prioritaire) :
+ *   reset → base → layout → composants → utilitaires
+ */
+
+/* 1. Déclaration globale de l'ordre des couches (cascade layers) */
+@layer reset, base, layout, composants, utilitaires;
+
+/* 2. Design tokens — variables CSS globales (hors layer, toujours disponibles) */
+@import url("tokens/design-tokens.css");
+
+/* 3. Couches importées dans l'ordre déclaré ci-dessus */
+@import url("layers/reset.css") layer(reset);
+@import url("layers/base.css") layer(base);
+@import url("layers/layout.css") layer(layout);
+@import url("composants/nav.css") layer(composants);
+@import url("composants/hero.css") layer(composants);
+@import url("composants/carte-rando.css") layer(composants);
+@import url("layers/utilitaires.css") layer(utilitaires);
