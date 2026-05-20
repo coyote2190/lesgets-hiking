@@ -20,6 +20,6 @@
 @import url("layers/reset.css") layer(reset);
 @import url("layers/base.css") layer(base);
 @import url("layers/layout.css") layer(layout);
-@import url("composants/hero.css") layer(composants);
-@import url("composants/nav.css") layer(composants);
+/* @import url("composants/hero.css") layer(composants);
+@import url("composants/nav.css") layer(composants); */
 @import url("layers/utilitaires.css") layer(utilitaires);
