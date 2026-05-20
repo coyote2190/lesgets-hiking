@@ -23,3 +23,20 @@ lesgets-hiking/
 │   └── images/
 └── README.md
 ```
+
+## Variables
+
+### Primitives
+
+Les valeurs brutes de la palette : couleurs concrètes (`--vert-500`, `--sable-100`), tailles de texte, rayons… Elles ne disent pas _à quoi_ elles servent, juste _ce qu'elles sont_.
+
+### Sémantiques
+
+Des alias qui donnent un sens fonctionnel aux primitives :
+
+```css
+--color-bg: var(--grey-50); /* "fond de page" → pointe vers une primitive */
+--color-primary: var(--vert-500); /* "couleur principale" */
+```
+
+L'intérêt : si tu changes de thème ou de palette, tu ne touches qu'aux sémantiques (ou au dark mode override), pas à chaque composant. Les composants n'utilisent jamais `--vert-500` directement, seulement `--color-primary`.
