@@ -1,6 +1,7 @@
 # Les Gets Trails
 
-Projet d'apprentissage CSS — mise en pratique des bonnes pratiques CSS modernes autour d'un site de randonnées à Les Gets (Haute-Savoie).
+Projet d'apprentissage CSS
+Mise en pratique des bonnes pratiques CSS modernes autour d'un site de randonnées à Les Gets (Haute-Savoie).
 
 ## Structure du projet
 
