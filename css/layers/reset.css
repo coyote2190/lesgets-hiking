@@ -63,13 +63,9 @@ html {
 }
 
 body {
-  /* Antialiasing pour un rendu plus propre */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
-  /* Hauteur min pour que le footer soit toujours en bas */
   min-height: 100dvh;
-
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -105,4 +101,15 @@ button {
   /* Désactive les styles navigateur sur iOS */
   -webkit-appearance: none;
   appearance: none;
+}
+
+/* Empêche les images de déborder sur leur conteneur */
+img {
+  height: auto;
+}
+
+/* Sélection de texte avec ta couleur */
+::selection {
+  background: var(--color-primary-light);
+  color: var(--color-text);
 }
